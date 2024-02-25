@@ -15,45 +15,45 @@ Whilst DTMF is still commonly used in telephony, [blue boxing](https://en.wikipe
 
 After running the program you'll be preseted with the following message:
 
-<code>
+```
 Enter a number or use
 'd' for DTMF (default),
 'b' for Blue Box,
 'r' for US Red Box or
 'u' for UK Red Box
-</code>
+```
 
 From here you can press <kbd>d</kbd> to enter DTMF mode and then use `0-9` and `a-d` to generate DTMF tones.
 
 If you press <kbd>b</kbd> you will see:
 
-<code>
+```
 Blue Box Mode:
 0 to 9
 'k' for KP
 's' for ST
-</code>
+```
 
 From here you can press `0-9`, `k` keep pulsing or `s` for start.
 
 If you press <kbd>r</kbd> you will see:
 
-<code>
+```
 US Red Box Mode:
 1 for nickle
 2 for dime
 3 for quarter
 4 for dollar
-</code>
+```
 
 From here you can press `1-4`, for nickle, dime, quarter or dollar respectively.
 
 Finally, if you press <kbd>u</kbd> you will see:
 
-<code>
+```
 UK Red Box Mode
 1 for 10p
 2 for 50p
-</code>
+```
 
 From here you can press `1-2`, for 10 or 20 pence respectively.
