@@ -1,5 +1,7 @@
 #include "M5Cardputer.h"
 #include "M5GFX.h"
+#include "SPI.h"
+
 #define DTMF 0
 #define BLUE_BOX 1
 #define US_RED_BOX 2
@@ -13,6 +15,7 @@ int mode = DTMF;
 void setup() {
     auto cfg = M5.config();
     M5Cardputer.begin(cfg, true);
+    
     M5Cardputer.Display.setRotation(1);
     M5Cardputer.Display.setTextSize(0.4);
     
@@ -26,14 +29,15 @@ void setup() {
     canvas.createSprite(M5Cardputer.Display.width() - 8, M5Cardputer.Display.height() - 36);
     canvas.setTextScroll(true);
     canvas.println(
-      "Enter a number or use\n" 
-      "'d' for DTMF (default),\n" 
-      "'b' for Blue Box,\n" 
-      "'r' for US Red Box or\n"
-      "'u' for UK Red Box");
+        "Enter a number or use\n" 
+        "'d' for DTMF (default),\n" 
+        "'b' for Blue Box,\n" 
+        "'r' for US Red Box or\n"
+        "'u' for UK Red Box");
     canvas.pushSprite(4, 4);
     M5Cardputer.Display.drawString(prompt, 4, M5Cardputer.Display.height() - 24);
 }
+
 
 void draw_border() {
     if (mode == BLUE_BOX) {
@@ -134,11 +138,10 @@ void process_blue_box(String input) {
     }
     canvas.println();
     M5.Speaker.end();
-
 }
 
 void process_us_red_box(String input) {
-      M5.Speaker.begin();
+    M5.Speaker.begin();
     
     for (auto i : input) {      
         switch(i) {
@@ -183,7 +186,7 @@ void process_us_red_box(String input) {
 }
 
 void process_uk_red_box(String input) {
-      M5.Speaker.begin();
+    M5.Speaker.begin();
     
     for (auto i : input) {      
         switch(i) {
@@ -314,6 +317,7 @@ void process_dtmf(String input) {
 
 void loop() {
     M5Cardputer.update();
+    
     if (M5Cardputer.Keyboard.isChange()) {
         if (M5Cardputer.Keyboard.isPressed()) {
             Keyboard_Class::KeysState status = M5Cardputer.Keyboard.keysState();
