@@ -1,5 +1,5 @@
 # ToneGenerator
-DTMF, Blue, and US/UK Red Box tone generator for the Cardputor device in Arduino Sketch
+DTMF, Blue, and US/UK Red Box tone generator for the CardPuter device in Arduino Sketch
 
 ![Screenshot](https://github.com/James-P-D/ToneGenerator/blob/main/screenshot.gif)
 
